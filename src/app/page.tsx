@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import styles from './page.module.css'
 import TopBar from '@/components/TopBar'
 import { Button, Card, CardContent, Modal } from '@mui/material'
+import Login from '@/components/Login/Login'
 
 type Props = {}
 
@@ -28,6 +29,7 @@ const Home = ({}: Props) => {
     <>
       <TopBar />
       <main className={styles.main}>
+        <Login />
         <Card>
           <CardContent>
             Coffee: {coffee}
