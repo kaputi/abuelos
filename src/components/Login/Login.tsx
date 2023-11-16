@@ -14,9 +14,13 @@ import {
 } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 
-type Props = {}
+type Props = {
+  show: boolean
+  loginHandler: (user: string, password: string) => Promise<void>
+  testHandler: () => Promise<void>
+}
 
-const Login = ({}: Props) => {
+const Login = ({ loginHandler, testHandler, show }: Props) => {
   const [wrongPassword, setWrongPassowrd] = useState<boolean>(false)
   const [wrongUser, setWrongUser] = useState<boolean>(false)
   const [showPassword, setShowPassword] = useState<boolean>(false)
@@ -31,7 +35,7 @@ const Login = ({}: Props) => {
   ) => event.preventDefault()
 
   return (
-    <MyModal closeDisabled={true} open={true}>
+    <MyModal closeDisabled={true} open={show}>
       <Card sx={{ p: '10px' }} variant="outlined">
         <CardContent>
           <FormControl
@@ -80,7 +84,15 @@ const Login = ({}: Props) => {
           </FormControl>
         </CardContent>
         <CardActions>
-          <Button variant="contained">Login</Button>
+          <Button
+            onClick={() => loginHandler(user, password)}
+            variant="contained"
+          >
+            Login
+          </Button>
+          <Button onClick={() => testHandler()} variant="contained">
+            Test
+          </Button>
         </CardActions>
       </Card>
     </MyModal>

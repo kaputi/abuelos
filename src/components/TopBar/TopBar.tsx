@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styles from './TopBar.module.css'
 import { AppBar, Box, Button, Card, CardContent, Modal } from '@mui/material'
 
@@ -11,17 +11,12 @@ const TopBar = ({}: Props) => {
 
   return (
     <>
-      <AppBar>
+      <AppBar position='static'>
         <div className={styles.topBar}>
           <Button onClick={handleOpen} size="medium" variant="contained">
             Calendario
           </Button>
         </div>
-      </AppBar>
-      <AppBar>
-      <div>
-      LLENA ESTO
-      </div>
       </AppBar>
 
       <Modal open={open} onClose={handleClose}>
